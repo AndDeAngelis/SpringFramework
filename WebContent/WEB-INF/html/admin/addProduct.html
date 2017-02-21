@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Index</title>
+<title>Nuovo Prodotto</title>
 <meta charset="utf-8" />
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
@@ -23,15 +23,15 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">AcmeSpring</a>
+				<a class="navbar-brand" href="#">Admin Panel</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Vetrina</a></li>
+					<li><a href="admin">Home</a></li>
+					<li class="active"><a href="#">Inserisci prodotto<span class="sr-only">(current)</span></a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Categorie <span class="caret"></span></a>
@@ -48,7 +48,7 @@
 							aria-hidden="true"></i> <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Profilo</a></li>
-							<li><a href="#">Carrello</a></li>
+							<li><a href="#">Aggiungi admin</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href="#">Logout</a></li>
 						</ul></li>
@@ -64,7 +64,23 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<h1 th:text="${message}"></h1>
+	<div class="form">
+		<h2>Nuovo album</h2>
+		<form th:action="@{/addProduct}" method="POST" th:object="${product}">
+			<input type="text" placeholder="Nome artista" name="artist"
+				th:field="*{artist}" />
+				<input type="text" placeholder="Titolo album" name="album"
+				th:field="*{album}" /> <input type="text" placeholder="Categoria"
+				name="category" th:field="*{category}" /> <input type="text"
+				placeholder="Descrizione" name="description"
+				th:field="*{description}" /> <input type="number" step="any"
+				placeholder="Prezzo" name="price" th:field="*{price}" /> <input
+				type="number" placeholder="Q.tà magazzino" name="inStock"
+				th:field="*{inStock}" /> <input type="number"
+				placeholder="Anno produzione" name="exitYear" th:field="*{exitYear}" />
+			<button type="submit">Conferma</button>
+		</form>
+	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script

@@ -8,10 +8,12 @@
 	<http pattern="/resources/**" security="none" />
 
 	<http auto-config="true" use-expressions="true">
-		<intercept-url pattern="/user/**" access="hasRole('USER')" />
+		<intercept-url pattern="/user/**" access="hasRole('USER') or hasRole('ADMIN')" />
+		<intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
 		<form-login authentication-failure-url="/login" login-page="/login"
-			login-processing-url="/login" default-target-url="/user" />
-		<!-- <logout invalidate-session="true" success-handler-ref="logoutSuccessHandler" /> -->
+			login-processing-url="/login" default-target-url="/user"
+			authentication-success-handler-ref="customSuccessHandler" />
+		<logout invalidate-session="true" success-handler-ref="logoutSuccessHandler" />
 	</http>
 
 	<authentication-manager>

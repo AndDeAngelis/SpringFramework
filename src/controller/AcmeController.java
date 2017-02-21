@@ -34,13 +34,4 @@ public class AcmeController {
 		String message = "Registrazione completata!";
 		return new ModelAndView("user/home", "message", message).addObject("customer", customer);
 	}
-	
-	@RequestMapping("/user")
-	public ModelAndView homePage() {
-		Customer customer = new Customer();
-		if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof Customer) {
-			customer = (Customer)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		}
-		return new ModelAndView("user/home", "customer", customer);
-	}
 }

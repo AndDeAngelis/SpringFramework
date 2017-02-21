@@ -1,5 +1,7 @@
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
@@ -49,7 +51,7 @@ public class Customer implements UserDetails {
 	}
 
 	public Date getDateOfBirth() {
-		return dateOfBirth;
+		return this.dateOfBirth;
 	}
 
 	public void setDateOfBirth(Date dateOfBirth) {

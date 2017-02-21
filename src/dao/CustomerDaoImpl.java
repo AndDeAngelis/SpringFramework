@@ -12,7 +12,7 @@ import model.Customer;
 
 @Repository
 public class CustomerDaoImpl implements CustomerDao {
-	private static final String COLLECTION = "Customer";
+	private static final String COLLECTION = "customers";
 	@Autowired
 	private MongoTemplate mongoTemplate;
 
