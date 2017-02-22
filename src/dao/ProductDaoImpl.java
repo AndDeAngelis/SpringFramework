@@ -39,4 +39,11 @@ public class ProductDaoImpl implements ProductDao {
 		
 		return productsByCategory;
 	}
+
+	@Override
+	public List<Product> findAllProducts() {
+		List<Product> products = new ArrayList<>();
+		products = this.mongoTemplate.findAll(Product.class, COLLECTION);
+		return products;
+	}
 }
