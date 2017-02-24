@@ -7,7 +7,7 @@ import model.Product;
 
 public interface ProductDao {
 	public void create(Product product);
-	public Product findCustomerById(String id);
+	public Product findProductById(String id);
 	public List<Product> findProductsByCategory(String category);
 	public List<Product> findAllProducts();
 }

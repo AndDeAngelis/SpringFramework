@@ -4,6 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Product {
+	private String id;
 	private String artist;
 	private String album;
 	private String category;
@@ -14,6 +15,14 @@ public class Product {
 	private int exitYear;
 	
 	public Product() { }
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getArtist() {
 		return artist;
@@ -70,7 +79,6 @@ public class Product {
 	public void setImagePath(String category, String album) {
 		String path = "resources/img/" + category.toLowerCase() + "/" + album.replaceAll(" ", "_").toLowerCase() + ".jpg";
 		this.imagePath = path;
-		System.out.println(this.imagePath);
 	}
 
 	public int getExitYear() {

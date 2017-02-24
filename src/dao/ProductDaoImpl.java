@@ -24,7 +24,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public Product findCustomerById(String id) {
+	public Product findProductById(String id) {
 		return this.mongoTemplate.findById(id, Product.class, COLLECTION);
 	}
 
