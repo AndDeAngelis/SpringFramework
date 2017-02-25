@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Index</title>
+<title>AcmeSpring - Home</title>
 <meta charset="utf-8" />
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
@@ -36,14 +36,14 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a th:href="@{/user}">Home <span
 							class="sr-only">(current)</span></a></li>
-					<li><a th:href="@{catalogue}">Catalogo</a></li>
+					<li><a th:href="@{user/catalogue}">Catalogo</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Categorie <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a th:href="@{catalogue/Italiana}">Italiana</a></li>
-							<li><a th:href="@{catalogue/Metal}">Metal</a></li>
-							<li><a th:href="@{catalogue/Pop}">Pop</a></li>
+							<li><a th:href="@{user/catalogue/Italiana}">Italiana</a></li>
+							<li><a th:href="@{user/catalogue/Metal}">Metal</a></li>
+							<li><a th:href="@{user/catalogue/Pop}">Pop</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

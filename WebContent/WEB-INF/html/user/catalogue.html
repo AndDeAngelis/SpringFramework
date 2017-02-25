@@ -41,9 +41,9 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Categorie <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a th:href="@{/catalogue/Italiana}">Italiana</a></li>
-							<li><a th:href="@{/catalogue/Metal}">Metal</a></li>
-							<li><a th:href="@{/catalogue/Pop}">Pop</a></li>
+							<li><a th:href="@{/user/catalogue/Italiana}">Italiana</a></li>
+							<li><a th:href="@{/user/catalogue/Metal}">Metal</a></li>
+							<li><a th:href="@{/user/catalogue/Pop}">Pop</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -199,7 +199,7 @@
 				<td th:text="${data.album}"></td>
 				<td th:text="${data.price}"></td>
 				<td><button type="button" class="btn btn-info">
-						<a th:href="@{'/catalogue/' + ${data.category} + '/' + ${data.id}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+						<a th:href="@{'/user/catalogue/' + ${data.category} + '/' + ${data.id}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
 					</button></td>
 			</tr>
 		</tbody>

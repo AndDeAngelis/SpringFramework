@@ -28,7 +28,7 @@ public class CustomerController {
 		return new ModelAndView("user/home", "customer", customer);
 	}
 
-	@RequestMapping("/catalogue")
+	@RequestMapping("/user/catalogue")
 	public ModelAndView showCatalogue() {
 		List<Product> products = new ArrayList<>();
 		products = productDao.findAllProducts();
@@ -42,7 +42,7 @@ public class CustomerController {
 		return new ModelAndView("user/catalogue", "products", products).addObject("customer", customer);
 	}
 
-	@RequestMapping("/catalogue/{category}")
+	@RequestMapping("/user/catalogue/{category}")
 	public ModelAndView showCategorySection(@PathVariable String category) {
 		List<Product> products = new ArrayList<>();
 		products = productDao.findProductsByCategory(category);
@@ -56,7 +56,7 @@ public class CustomerController {
 		return new ModelAndView("user/category", "products", products).addObject("customer", customer);
 	}
 	
-	@RequestMapping("/catalogue/{category}/{id}")
+	@RequestMapping("/user/catalogue/{category}/{id}")
 	public ModelAndView showProductDetails(@PathVariable String category, @PathVariable String id) {
 		Product product = productDao.findProductById(id);
 		
