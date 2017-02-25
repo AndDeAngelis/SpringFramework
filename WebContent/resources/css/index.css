@@ -1,0 +1,33 @@
+html,body, .container {
+   height: 100%;
+}
+
+body {
+	background-color: #212c28;
+}
+
+.flexbox-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;.
+    align-items: center;
+    height: 100%;
+}
+
+h1 {
+	font-size: 72px;
+	color: #ffffff;
+}
+
+label, a {
+	font-size: 30px;
+	color: #33b5e5;
+}
+
+a:hover {
+	text-decoration: overline;
+	color: #33b5e5;
+}
