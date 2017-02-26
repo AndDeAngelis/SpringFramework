@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>AcmeSpring - Dettagli</title>
+<title>AcmeSpring - Profilo</title>
 <meta charset="utf-8" />
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
@@ -35,8 +35,7 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a th:href="@{/user}">Home</a></li>
-					<li class="active"><a th:href="@{/user/catalogue}">Catalogo <span
-							class="sr-only">(current)</span></a></li>
+					<li><a th:href="@{/user/catalogue}">Catalogo</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Categorie <span class="caret"></span></a>
@@ -47,10 +46,11 @@
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span>
-							<strong>Account</strong> <span
-							class="glyphicon glyphicon-chevron-down"></span>
+					<li class="dropdown active"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown"> <span
+							class="glyphicon glyphicon-user"></span> <strong>Account</strong>
+							<span class="glyphicon glyphicon-chevron-down"></span><span
+							class="sr-only">(current)</span>
 					</a>
 						<ul class="dropdown-menu">
 							<li>
@@ -68,7 +68,7 @@
 											</p>
 											<p class="text-left small" th:text="${customer.email}"></p>
 											<p class="text-left">
-												<a th:href="@{/user/profile}" class="btn btn-info btn-block btn-sm">Profilo</a>
+												<a href="#" class="btn btn-info btn-block btn-sm">Profilo</a>
 											</p>
 										</div>
 									</div>
@@ -189,26 +189,25 @@
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
 					<div class="thumbnail">
-						<h4 th:text="${product.artist} + ' - ' + ${product.album}">
+						<h4 th:text="${customer.firstName} + ' ' + ${customer.lastName}">
 							<span class="label label-info"></span>
 						</h4>
-						<div style="height: 250px; width: 250px;">
-							<img th:src="@{${product.imagePath}}" class="img-responsive" />
+						<div style="height: 100px; width: 100px;">
+							<span class="glyphicon glyphicon-user icon-size"></span>
 						</div>
 						<div class="caption">
-							<h3 th:text="'Prezzo: ' + ${product.price}"></h3>
-							<h3 th:text="'In magazzino: ' + ${product.inStock}"></h3>
-							<h3 th:text="'Anno di uscita: ' + ${product.exitYear}"></h3>
-							<p th:text="'Descrizione: ' + ${product.description}"></p>
+							<h3 th:text="'Email: ' + ${customer.email}"></h3>
+							<h3 th:text="'Username: ' + ${customer.username}"></h3>
+							<h3 th:text="'Data di nascita: ' + ${customer.dateOfBirth}"></h3>
+							<p th:text="'Permessi: ' + ${customer.role}"></p>
 							<div class="row">
 								<div class="col-md-6">
 									<a class="btn btn-primary btn-warning"><span
 										class="glyphicon glyphicon-arrow-left"></span> Indietro</a>
 								</div>
 								<div class="col-md-6">
-									<a href="#" class="btn btn-success btn-info"><span
-										class="glyphicon glyphicon-shopping-cart"></span>Aggiungi al
-										carrello</a>
+									<a href="#" class="btn btn-success btn-danger"><span
+										class="glyphicon glyphicon-off"></span> Logout</a>
 								</div>
 							</div>
 							<p></p>

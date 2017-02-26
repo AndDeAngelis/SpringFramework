@@ -3,6 +3,8 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -60,7 +62,6 @@ public class CustomerController {
 	public ModelAndView showProductDetails(@PathVariable String category, @PathVariable String id) {
 		Product product = productDao.findProductById(id);
 		
-		System.out.println(product.toString());
 		Customer customer = new Customer();
 		
 		if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof Customer) {
@@ -68,5 +69,16 @@ public class CustomerController {
 		}
 		
 		return new ModelAndView("user/productDetails", "product", product).addObject("customer", customer);
+	}
+	
+	@RequestMapping("/user/profile")
+	public ModelAndView showCustomerDetails() {
+		Customer customer = new Customer();
+		
+		if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof Customer) {
+			customer = (Customer)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		}		
+		
+		return new ModelAndView("user/userDetails", "customer", customer);
 	}
 }
