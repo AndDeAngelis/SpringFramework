@@ -41,7 +41,7 @@ public class CustomerController {
 			customer = (Customer)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		}
 		
-		return new ModelAndView("user/catalogue", "products", products).addObject("customer", customer);
+		return new ModelAndView("user/catalogue", "products", products).addObject("customer", customer).addObject("message", "PROVAJS");
 	}
 
 	@RequestMapping("/user/catalogue/{category}")

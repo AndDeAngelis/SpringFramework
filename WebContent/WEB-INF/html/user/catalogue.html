@@ -68,7 +68,8 @@
 											</p>
 											<p class="text-left small" th:text="${customer.email}"></p>
 											<p class="text-left">
-												<a th:href="@{/user/profile}" class="btn btn-info btn-block btn-sm">Profilo</a>
+												<a th:href="@{/user/profile}"
+													class="btn btn-info btn-block btn-sm">Profilo</a>
 											</p>
 										</div>
 									</div>
@@ -80,7 +81,7 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<p>
-												<a href="#" class="btn btn-danger btn-block">Logout</a>
+												<a th:href="@{/logout}" class="btn btn-danger btn-block">Logout</a>
 											</p>
 										</div>
 									</div>
@@ -184,26 +185,28 @@
 			</div>
 		</div>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Artista</th>
-				<th>Album</th>
-				<th>Prezzo</th>
-				<th>Dettagli</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="data : ${products}">
-				<td th:text="${data.artist}"></td>
-				<td th:text="${data.album}"></td>
-				<td th:text="${data.price}"></td>
-				<td><button type="button" class="btn btn-info">
-						<a th:href="@{'/user/catalogue/' + ${data.category} + '/' + ${data.id}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
-					</button></td>
-			</tr>
-		</tbody>
-	</table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Artista</th>
+					<th>Album</th>
+					<th>Prezzo</th>
+					<th>Dettagli</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="data : ${products}">
+					<td th:text="${data.artist}"></td>
+					<td th:text="${data.album}"></td>
+					<td th:text="${data.price}"></td>
+					<td><a
+						th:href="@{'/user/catalogue/' + ${data.category} + '/' + ${data.id}}"><button
+								type="button" class="btn btn-info">
+								<i class="fa fa-plus" aria-hidden="true"></i>
+							</button></a></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 
 	<footer>

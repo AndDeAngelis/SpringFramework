@@ -42,9 +42,6 @@
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg ref="mongoDbFactory" />
 	</bean>
-
-	<bean id="logoutSuccessHandler" class="service.CustomLogoutSuccessHandler">
-	</bean>
 	
 	<bean id="customSuccessHandler" class="service.CustomSuccessHandler" />
 </beans>

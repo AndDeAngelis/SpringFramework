@@ -31,7 +31,8 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="admin">Home</a></li>
-					<li class="active"><a href="#">Inserisci prodotto<span class="sr-only">(current)</span></a></li>
+					<li class="active"><a href="#">Inserisci prodotto<span
+							class="sr-only">(current)</span></a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Categorie <span class="caret"></span></a>
@@ -64,21 +65,27 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<div class="form">
+	<div class="form container">
 		<h2>Nuovo album</h2>
 		<form th:action="@{/addProduct}" method="POST" th:object="${product}">
-			<input type="text" placeholder="Nome artista" name="artist"
-				th:field="*{artist}" />
-				<input type="text" placeholder="Titolo album" name="album"
-				th:field="*{album}" /> <input type="text" placeholder="Categoria"
-				name="category" th:field="*{category}" /> <input type="text"
-				placeholder="Descrizione" name="description"
-				th:field="*{description}" /> <input type="number" step="any"
-				placeholder="Prezzo" name="price" th:field="*{price}" /> <input
-				type="number" placeholder="Q.tà magazzino" name="inStock"
-				th:field="*{inStock}" /> <input type="number"
-				placeholder="Anno produzione" name="exitYear" th:field="*{exitYear}" />
-			<button type="submit">Conferma</button>
+			<ul>
+				<li><h4>Artista:</h4> <input type="text"
+					placeholder="Nome artista" name="artist" th:field="*{artist}" /></li>
+				<li><h4>Album:</h4> <input type="text"
+					placeholder="Titolo album" name="album" th:field="*{album}" /></li>
+				<li><h4>Categoria:</h4> <input type="text"
+					placeholder="Categoria" name="category" th:field="*{category}" /></li>
+				<li><h4>Descrizione:</h4> <input type="text"
+					placeholder="Descrizione" name="description"
+					th:field="*{description}" /></li>
+				<li><h4>Prezzo:</h4> <input type="number" step="any"
+					name="price" th:field="*{price}" /></li>
+				<li><h4>Q.tà magazzino:</h4> <input type="number"
+					name="inStock" th:field="*{inStock}" /></li>
+				<li><h4>Anno di uscita:</h4>
+					<input type="number" name="exitYear" th:field="*{exitYear}" /></li>
+				<li><button type="submit">Conferma</button></li>
+			</ul>
 		</form>
 	</div>
 
