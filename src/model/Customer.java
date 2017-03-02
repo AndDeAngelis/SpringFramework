@@ -1,6 +1,6 @@
 package model;
 
-import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
@@ -19,7 +19,7 @@ public class Customer implements UserDetails {
 	private String email;
 	private String password;
 	private String role;
-	
+
 	public Customer() { }
 
 	public Customer(String firstName, String lastName, Date dateOfBirth, String username,
@@ -54,8 +54,13 @@ public class Customer implements UserDetails {
 		return this.dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setDateOfBirth(String dateOfBirth) {
+		try {
+			this.dateOfBirth = new SimpleDateFormat("yyyy-MM-dd").parse(dateOfBirth);
+		} 
+		catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public String getUsername() {
@@ -118,5 +123,11 @@ public class Customer implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth
+				+ ", username=" + username + ", email=" + email + ", password=" + password + ", role=" + role + "]";
 	}
 }

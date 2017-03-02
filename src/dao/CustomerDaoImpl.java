@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public void create(Customer customer) {
+		System.out.println(customer.getDateOfBirth().toString());
 		this.mongoTemplate.insert(customer, COLLECTION);
 	}
 

@@ -1,5 +1,7 @@
 package controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,11 +76,14 @@ public class CustomerController {
 	@RequestMapping("/user/profile")
 	public ModelAndView showCustomerDetails() {
 		Customer customer = new Customer();
+		DateFormat formattedDate = new SimpleDateFormat("dd/MM/yyyy");
+		String date = "";
 		
 		if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof Customer) {
 			customer = (Customer)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			date = formattedDate.format(customer.getDateOfBirth());
 		}		
 		
-		return new ModelAndView("user/userDetails", "customer", customer);
+		return new ModelAndView("user/userDetails", "customer", customer).addObject("date", date);
 	}
 }

@@ -34,7 +34,7 @@
 			<form th:action="@{/registration}" method="POST" th:object="${customer}">
 				<input type="text" placeholder="Nome" name="firstName" th:field="*{firstName}"/> 
 				<input type="text" placeholder="Cognome" name="lastName" th:field="*{lastName}"/>
-				<input type="date" placeholder="Data di Nascita (01/01/2017)" name ="dateOfBirth" th:field="*{dateOfBirth}"/>
+				<input type="date" name ="dateOfBirth" th:field="*{dateOfBirth}"/>
 				<input type="text" placeholder="Username" name="username" th:field="*{username}"/> 
 				<input type="email" placeholder="Email" name="email" th:field="*{email}"/>
 				<input type="password" placeholder="Password" name="password" th:field="*{password}"/>

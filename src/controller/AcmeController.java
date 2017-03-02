@@ -22,6 +22,9 @@ public class AcmeController {
 	
 	@RequestMapping(value = {"/", "/index"})
 	public ModelAndView welcome() {
+//		Customer customer = new Customer();
+//		customer.setDateOfBirth(new Date());
+//		System.out.println(customer.toString());
 		return new ModelAndView("index");
 	}
 	
