@@ -12,9 +12,9 @@
 </head>
 <body>
 	<div class="pen-title">
-		<h3>Inserisci i dati per il login</h3>
+		<h3>Inserisci i dati per il login o registrati</h3>
 	</div>
-	<p th:if="${param.error}">Dati errati</p>
+	<p align="center" style="color: #f9000a; font-weight:bold;" th:text="${message}"></p>
 	<!-- Form Module-->
 	<div class="module form-module">
 		<div class="toggle">
@@ -24,20 +24,20 @@
 		<div class="form">
 			<h2>Login</h2>
 			<form th:action="@{/login}" method="POST" th:object="${customer}">
-				<input type="text" placeholder="Username" name="username" th:field="*{username}"/> 
-				<input type="password" placeholder="Password" name="password" th:field="*{password}"/>
+				<input type="text" placeholder="Username" name="username" th:field="*{username}" /> 
+				<input type="password" placeholder="Password" name="password" th:field="*{password}" />
 				<button type="submit">Login</button>
 			</form>
 		</div>
 		<div class="form">
 			<h2>Registrazione</h2>
 			<form th:action="@{/registration}" method="POST" th:object="${customer}">
-				<input type="text" placeholder="Nome" name="firstName" th:field="*{firstName}"/> 
-				<input type="text" placeholder="Cognome" name="lastName" th:field="*{lastName}"/>
-				<input type="date" name ="dateOfBirth" th:field="*{dateOfBirth}"/>
-				<input type="text" placeholder="Username" name="username" th:field="*{username}"/> 
-				<input type="email" placeholder="Email" name="email" th:field="*{email}"/>
-				<input type="password" placeholder="Password" name="password" th:field="*{password}"/>
+				<input type="text" placeholder="Nome" name="firstName" th:field="*{firstName}" th:required="required"/> 
+				<input type="text" placeholder="Cognome" name="lastName" th:field="*{lastName}" th:required="required"/>
+				<input type="date" name ="dateOfBirth" th:field="*{dateOfBirth}" th:required="required" />
+				<input type="text" placeholder="Username" name="username" th:field="*{username}" th:required="required" /> 
+				<input type="email" placeholder="Email" name="email" th:field="*{email}" th:required="required" />
+				<input type="password" placeholder="Password" name="password" th:field="*{password}" pattern=".{3,}" title="La password deve contenere almeno 5 caratteri"/>
 				<button type="submit">Registrati</button>
 			</form>
 		</div>

@@ -17,9 +17,14 @@ public class CustomerDaoImpl implements CustomerDao {
 	private MongoTemplate mongoTemplate;
 
 	@Override
-	public void create(Customer customer) {
-		System.out.println(customer.getDateOfBirth().toString());
-		this.mongoTemplate.insert(customer, COLLECTION);
+	public boolean create(Customer customer) {
+		if(this.findCustomerByUsername(customer.getUsername()) != null) {
+			return false;
+		}
+		else {
+			this.mongoTemplate.insert(customer, COLLECTION);
+			return true;
+		}
 	}
 
 	@Override
